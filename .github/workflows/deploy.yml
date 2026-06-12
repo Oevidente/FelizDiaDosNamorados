@@ -20,7 +20,7 @@ jobs:
   build-and-deploy:
     environment:
       name: github-pages
-      url: ${{ steps:deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
@@ -49,3 +49,4 @@ jobs:
       - name: Executar o deploy no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
