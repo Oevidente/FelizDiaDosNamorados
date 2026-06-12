@@ -1,0 +1,6 @@
+{
+  "name": "Valentine's Wrapped",
+  "description": "Uma recapitulação especial do nosso ano, estilo Spotify Wrapped, projetada com interface Liquid Glass do iOS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
