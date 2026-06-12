@@ -1,6 +1,6 @@
 export const APP_DATA = {
   startDate: '2023-06-12', // Data do início
-  totalHours: '58',
+  totalHours: '56',
   totalMinutes: '45',
   movies: [
     { title: 'The Guardian (A Vigilante)', emoji: '🦸‍♀️' },

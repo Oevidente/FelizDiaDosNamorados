@@ -10,13 +10,11 @@ export const GlassContainer = ({ children, className = "" }: { children: React.R
   </div>
 );
 
-// --- Cálculo de Dias Juntos ---
-const getDaysTogether = (startDate: string) => {
-  const start = new Date(startDate);
-  const now = new Date();
-  const diff = now.getTime() - start.getTime();
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  return days > 0 ? days : 0;
+// --- Cálculo de Dias Corridos (Telas) ---
+const getScreenDays = (hours: string, minutes: string) => {
+  const totalHours = Number(hours) + (Number(minutes) / 60);
+  const days = Math.floor(totalHours / 24);
+  return days;
 };
 
 
@@ -66,7 +64,7 @@ export const IntroSlide = () => (
 
 // --- Slide 2: Tempo Juntos ---
 export const StatsSlide = () => {
-  const days = getDaysTogether(APP_DATA.startDate);
+  const screenDays = getScreenDays(APP_DATA.totalHours, APP_DATA.totalMinutes);
   
   return (
     <div className="flex flex-col items-center justify-center h-full space-y-10 w-full max-w-sm mx-auto">
@@ -90,7 +88,7 @@ export const StatsSlide = () => {
             <div className="absolute inset-0 bg-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <Clock className="w-8 h-8 text-sky-300" />
             <div>
-              <p className="text-[32px] leading-none font-semibold tracking-tight text-white">{APP_DATA.totalHours}h</p>
+              <p className="text-[32px] leading-none font-semibold tracking-tight text-white">{APP_DATA.totalHours}h <span className="text-[20px]">{APP_DATA.totalMinutes}m</span></p>
               <p className="text-[13px] font-medium text-white/60 mt-1.5 leading-tight uppercase tracking-wide">Assistindo juntos</p>
             </div>
           </GlassContainer>
@@ -106,8 +104,8 @@ export const StatsSlide = () => {
             <div className="absolute inset-0 bg-rose-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <Heart className="w-8 h-8 text-rose-300 fill-rose-300/30" />
             <div>
-              <p className="text-[32px] leading-none font-semibold tracking-tight text-white">{days}</p>
-              <p className="text-[13px] font-medium text-white/60 mt-1.5 uppercase tracking-wide">Dias</p>
+              <p className="text-[32px] leading-none font-semibold tracking-tight text-white">+{screenDays}</p>
+              <p className="text-[13px] font-medium text-white/60 mt-1.5 uppercase tracking-wide">Dias Sem Dormir</p>
             </div>
           </GlassContainer>
         </motion.div>
@@ -300,7 +298,7 @@ export const OutroSlide = () => (
 
 // --- Slide 7: Spotify-Style Summary ---
 export const SpotifySummarySlide = () => {
-  const days = getDaysTogether(APP_DATA.startDate);
+  const screenDays = getScreenDays(APP_DATA.totalHours, APP_DATA.totalMinutes);
   const topMovies = APP_DATA.movies.slice(0, 4);
   const topSeries = APP_DATA.series.slice(0, 4);
   const topSports = APP_DATA.sports.slice(0, 4);
@@ -339,8 +337,8 @@ export const SpotifySummarySlide = () => {
           
           <div className="flex items-center justify-center gap-4 py-2 px-3 bg-white/5 rounded-2xl border border-white/5 max-w-[280px] mx-auto mt-2 shadow-inner">
             <div className="text-left">
-              <p className="text-[9px] text-white/40 uppercase font-bold tracking-wider leading-none">Dias Juntos</p>
-              <p className="text-[20px] font-bold text-emerald-400 mt-1 leading-none">{days} <span className="text-[11px] font-medium text-white/75">dias</span></p>
+              <p className="text-[9px] text-white/40 uppercase font-bold tracking-wider leading-none">Dias Seguidos</p>
+              <p className="text-[20px] font-bold text-emerald-400 mt-1 leading-none">{screenDays} <span className="text-[11px] font-medium text-white/75">dias</span></p>
             </div>
             <div className="w-[1px] h-8 bg-white/10" />
             <div className="text-left">
