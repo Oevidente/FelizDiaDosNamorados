@@ -28,7 +28,7 @@ export const APP_DATA = {
     { title: 'João Fonseca', emoji: '🎾' },
     { title: 'US Open', emoji: '🏆' },
     { title: 'Roland Garros', emoji: '🇫🇷' },
-    { title: 'Alcaraz vs Djokovic', emoji: '🔥' },
+    { title: 'João Fonseca vs Djokovic', emoji: '🔥' },
     { title: 'Australian Open / Rybakina', emoji: '🇦🇺' },
     { title: 'Bia Haddad', emoji: '🇧🇷' }
   ]
