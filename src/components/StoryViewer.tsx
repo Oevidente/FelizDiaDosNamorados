@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { IntroSlide, StatsSlide, MoviesSlide, SeriesSlide, SportsSlide, OutroSlide } from './slides';
+import { IntroSlide, StatsSlide, MoviesSlide, SeriesSlide, SportsSlide, OutroSlide, SpotifySummarySlide } from './slides';
 
-const SLIDES = [IntroSlide, StatsSlide, MoviesSlide, SeriesSlide, SportsSlide, OutroSlide];
+const SLIDES = [IntroSlide, StatsSlide, MoviesSlide, SeriesSlide, SportsSlide, OutroSlide, SpotifySummarySlide];
 const DURATION = 8000; // 8 segundos por slide
 
 export default function StoryViewer() {
