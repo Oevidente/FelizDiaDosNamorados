@@ -138,7 +138,7 @@ export const MoviesSlide = () => (
       <h2 className="text-[36px] font-semibold tracking-tight text-white leading-[1.1]">Os filmes que<br/>assistimos</h2>
     </motion.div>
 
-    <div className="relative w-full h-[60%] mask-image-vertical py-4 overflow-hidden pointer-events-none">
+    <div className="relative w-full h-[52%] mask-image-vertical py-4 overflow-hidden pointer-events-none">
       <motion.div
         animate={{ y: ["0%", "-50%"] }}
         transition={{ ease: "linear", duration: 25, repeat: Infinity }}
@@ -158,6 +158,21 @@ export const MoviesSlide = () => (
         ))}
       </motion.div>
     </div>
+
+    {/* Indicador elegante de Toque e Segure */}
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 }}
+      className="flex items-center justify-center space-x-2 text-[12px] font-medium text-white/60 bg-white/5 border border-white/10 px-4 py-2 rounded-full w-fit mx-auto backdrop-blur-md shadow-lg"
+    >
+      <motion.span 
+        animate={{ scale: [1, 1.25, 1], opacity: [0.6, 1, 0.6] }} 
+        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" 
+      />
+      <span className="tracking-wide">Toque e segure para ver mais</span>
+    </motion.div>
   </div>
 );
 
